@@ -1,6 +1,5 @@
 /* ─── Tablet (769px – 1200px) ────────────────────────────────────────────── */
 @media (min-width: 769px) and (max-width: 1348px) {
-  /* changed the max-width to a better brake point that also accommodate .card-green */
   .cards-wrapper {
     height: auto;
     display: flex;
@@ -29,7 +28,7 @@
 @media (max-width: 900px) {
   .footer-top {
     flex-direction: column;
-    gap: 60px;
+    gap: 50px;
   }
 
   .footer-column h3,
@@ -39,67 +38,284 @@
   }
 
   .footer-big-text {
-    font-size: 40vw;
+    font-size: 32vw;
+  }
+
+  .Double-marquee {
+    flex-direction: column;
+    padding: 60px 24px;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .proud-working-right {
+    width: 100%;
+    max-width: 500px;
+    margin-right: 0;
   }
 }
 
-/* ─── Mobile (≤ 768px) ───────────────────────────────────────────────────── */
+/* ─── Mobile Devices (≤ 768px) ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* ── Navbar ─────────────────────── */
+  /* Prevent horizontal layout scrolling */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* ── 1. Navbar ─────────────────────── */
   .navbar {
-    padding: 14px 16px;
+    padding: 12px 16px;
+    width: 100%;
   }
 
   .logo-truus {
-    width: 100px;
+    width: 130px;
+    height: auto;
   }
 
   .logo-work-container {
-    width: 48px;
-    height: 44px;
+    width: 44px;
+    height: 40px;
   }
 
   .logo-work-text {
-    font-size: 1.4rem;
-    margin-left: 52px;
+    font-size: 1.25rem;
+    margin-left: 48px;
   }
 
   .nav-bar__whatsapp-svg {
-    width: 26px;
+    width: 24px;
+    height: 24px;
   }
 
-  /* ── Header Hero ────────────────── */
-  .header-content {
+  /* Constrain popouts on mobile screens */
+  .nav-popout {
+    max-width: calc(100vw - 24px);
+  }
+
+  .nav-work-box .nav-popout-inner {
+    width: min(340px, calc(100vw - 32px));
+    padding: 70px 16px 16px;
+  }
+
+  .nav-wa-box .nav-popout-inner {
+    width: min(300px, calc(100vw - 32px));
+    padding: 70px 16px 16px;
+  }
+
+  .nav-work-item {
+    gap: 12px;
+  }
+
+  .nav-work-item__img-wrap {
+    width: 60px;
+    height: 60px;
+  }
+
+  .nav-work-title {
+    font-size: 1.05rem;
+    margin-top: 25px;
+  }
+
+  .nav-work-btn {
+    margin-top: 4rem;
+    padding: 14px;
+    font-size: 1.15rem;
+  }
+
+  .nav-wa-qr {
+    width: 150px;
+    height: 150px;
+    top: -30px;
+  }
+
+  /* ── 2. Hero Section ────────────────── */
+  .vimeo-hero {
+    width: calc(100% - 16px);
+    height: calc(100svh - 16px);
+    margin: 8px auto;
+    border-radius: 18px;
+  }
+
+  .home-header__title {
+    padding: 0 16px;
+    width: 100%;
+  }
+
+  .vimeo-hero__title {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    gap: 0 0.16em;
+  }
+
+  .home-header__smiley {
+    width: 0.85em;
+    height: 0.85em;
+    top: -0.28em;
+  }
+
+  .home-header__star {
+    width: 0.7em;
+    height: 0.7em;
+    right: -0.45em;
+  }
+
+  .home-header__title-line-svg {
+    bottom: -0.1em;
+  }
+
+  .vimeo-hero__scroll-watermark {
+    bottom: 16px;
+  }
+
+  .vimeo-hero__scroll-text {
+    font-size: 0.65rem;
+    letter-spacing: 2.5px;
+  }
+
+  /* ── 3. Horizontal Words ────────────── */
+  .horizontal-words-section {
     height: 100svh;
-    padding: 0 24px;
-    text-align: center;
   }
 
-  .header-content h1 {
-    font-size: 2rem;
+  .horizontal-words__relative {
+    padding-left: 50vw;
+    padding-right: 40vw;
   }
 
-  /* ── Content / Hero Title ───────── */
-  .content-section {
-    padding: 80px 0 0;
-    overflow: visible;
+  .horizontal-words__h2 {
+    font-size: 13vw;
+    letter-spacing: -1px;
   }
 
-  .main-title {
-    font-size: 3rem;
+  .horizontal-words__bottom-text {
+    width: calc(100vw - 40px);
+    max-width: 340px;
+    transform: translate(-50%, 7em);
+  }
+
+  .horizontal-words__bottom-text-l {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .horizontal-words__sticker-cursor {
+    width: 4.5em;
+  }
+
+  .horizontal-words__sticker-phone {
+    width: 5em;
+  }
+
+  .horizontal-words__sticker-watch {
+    width: 4em;
+  }
+
+  .horizontal-words__arrow-svg {
+    width: 14em;
+  }
+
+  .horizontal-words__arrow-end-svg {
+    width: 5.5em;
+  }
+
+  /* ── 4. Motion Cards (Recent Works) ─── */
+  .motion-card-section {
+    padding: 70px 16px 60px;
+  }
+
+  .motion-card__title {
+    font-size: clamp(2.6rem, 9vw, 3.8rem);
     letter-spacing: -2px;
   }
 
+  .motion-card__sticker--top {
+    width: 70px;
+    height: 45px;
+    top: -20px;
+    right: -20px;
+  }
+
+  .motion-card__underline-svg {
+    max-width: 280px;
+  }
+
+  .motion-card__cards-area {
+    height: 520px;
+    margin: 20px auto 40px;
+  }
+
+  .motion-card__blob {
+    width: 320px;
+    height: 320px;
+  }
+
+  .motion-card__card {
+    width: 90vw;
+    max-width: 360px;
+    border-radius: 14px;
+  }
+
+  .motion-card__card--1 {
+    margin-bottom: -35px;
+    transform: rotate(-2.5deg) translateX(-8px);
+  }
+
+  .motion-card__card--2 {
+    margin-bottom: -35px;
+    transform: rotate(2.5deg) translateX(8px);
+  }
+
+  .motion-card__card--3 {
+    transform: rotate(-1.5deg);
+  }
+
+  .motion-card__floating-label {
+    padding: 5px 12px;
+  }
+
+  .motion-card__floating-text {
+    font-size: 0.8rem;
+  }
+
+  .motion-card__floating-label--pink {
+    top: 10%;
+    left: 22%;
+  }
+
+  .motion-card__floating-label--orange {
+    top: 48%;
+    left: 80%;
+  }
+
+  .motion-card__floating-label--red {
+    top: 86%;
+    left: 24%;
+  }
+
+  .motion-card__description {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    padding: 0 10px;
+  }
+
+  /* ── 5. Service Cards ───────────────── */
+  .content-section {
+    padding: 60px 0 0;
+  }
+
+  .main-title {
+    font-size: clamp(2.4rem, 8vw, 3.6rem);
+    letter-spacing: -1.5px;
+  }
+
   .title-underline-svg {
-    width: 100px;
-    bottom: -10px;
+    width: 90px;
   }
 
-  .title-container {
-    margin-bottom: 50px;
-  }
-
-  /* ── Cards (GSAP-controlled) ─────── */
   .cards-wrapper {
     position: relative !important;
     display: block !important;
@@ -109,201 +325,121 @@
   }
 
   .card {
-    width: 82vw;
-    max-width: 340px;
-    min-height: 420px;
-    height: auto;
+    width: 88vw;
+    max-width: 330px;
+    min-height: 400px;
   }
 
-  .card-sticker {
-    pointer-events: none;
-  }
-
-  /* ── Double Marquee ─────────────── */
+  /* ── 6. Proud to Working With ───────── */
   .Double-marquee {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 60px 24px 0;
-    gap: 0;
-    min-height: unset;
+    padding: 50px 16px 30px;
+    gap: 30px;
   }
 
   .marquee-left {
-    max-width: 100%;
+    min-height: auto;
     width: 100%;
-    justify-content: flex-start;
-    align-items: flex-start;
-    min-height: 340px;
-  }
-
-  .marquee-text-container {
-    text-align: left;
   }
 
   .marquee-left h2 {
-    font-size: 2.6rem;
-    letter-spacing: -1.5px;
+    font-size: clamp(2.2rem, 7.5vw, 2.8rem);
+    letter-spacing: -1px;
     margin-bottom: 0;
-    margin-right: 0;
-  }
-
-  .marquee-blob-container {
-    width: 240px;
-    height: 280px;
-    top: 45%;
-    left: 20%;
-  }
-
-  .marquee-svg-item:nth-child(1) {
-    width: 60px;
-    bottom: 10%;
-    left: 55%;
-  }
-
-  .marquee-svg-item:nth-child(2) {
-    width: 220px;
-    bottom: -5%;
-    left: 55%;
   }
 
   .marquee-underline {
-    top: 5rem;
-    right: auto;
-    left: 9.5rem;
-    width: 70px;
+    top: 4rem;
+    left: 8rem;
+    width: 60px;
   }
 
-  /* ── Logo columns → 2-row horizontal scroll grid ── */
-  .marquee-right {
-    display: grid;
-    grid-template-rows: 130px 130px;
-    grid-auto-flow: column;
-    grid-auto-columns: 130px;
-    gap: 8px;
+  .marquee-blob-container {
+    width: 180px;
+    height: 200px;
+    top: 50%;
+    left: 25%;
+  }
+
+  .proud-working-right {
     width: 100%;
-    height: auto;
+    max-width: 100%;
     margin-right: 0;
-    padding: 20px 24px 32px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    gap: 1rem;
   }
 
-  .marquee-right::-webkit-scrollbar {
-    display: none;
+  .proud-client-link {
+    padding: 1.2rem 1.4rem;
+    border-radius: 16px;
+    box-shadow: 4px 4px 0px var(--color-black);
   }
 
-  .marquee-column {
-    display: contents;
+  .proud-client-name {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
   }
 
-  .marquee-column::before,
-  .marquee-column::after {
-    display: none;
+  .proud-client-handle {
+    font-size: 0.9rem;
   }
 
-  .marquee-column:nth-child(1) .marquee-track,
-  .marquee-column:nth-child(2) .marquee-track {
-    display: contents;
-    animation: none;
+  .proud-client-arrow {
+    font-size: 1.5rem;
   }
 
-  .marquee-item {
-    width: 130px;
-    height: 130px;
-    flex-shrink: 0;
-  }
-
-  /* ── Footer ─────────────────────── */
+  /* ── 7. Footer ──────────────────────── */
   .main-footer {
     padding: 6px;
   }
 
   .footer-inner {
-    padding: 50px 20px 30px;
-    border-radius: 14px;
-    min-height: 100svh;
+    padding: 40px 16px 24px;
+    border-radius: 16px;
   }
 
-  .footer-top {
-    flex-direction: column;
-    gap: 36px;
-  }
-
-  .footer-column h3 {
-    font-size: 1.4rem;
-    letter-spacing: -0.5px;
-  }
-
-  .footer-column address {
-    font-size: 1.25rem;
-  }
-
-  .footer-email {
-    font-size: 1.3rem;
-  }
-
-  .footer-whatsapp {
-    font-size: 1.1rem;
-    margin-top: -6px;
-  }
-
-  .footer-map-link {
+  .footer-badge {
     font-size: 0.95rem;
   }
 
-  /* ── Footer Stickers (mobile) ──── */
-  .sticker-boom {
-    left: 2%;
-    bottom: 10%;
-    width: 90px;
+  .footer-email {
+    font-size: clamp(1.15rem, 5vw, 1.6rem);
   }
 
-  .sticker-smiley {
-    left: 30%;
-    bottom: 5%;
-    width: 90px;
+  .footer-whatsapp {
+    font-size: clamp(1.05rem, 4.5vw, 1.4rem);
   }
 
-  .sticker-heart {
-    left: 50%;
-    bottom: 18%;
-    width: 85px;
+  .footer-note {
+    font-size: 0.85rem;
   }
 
-  .footer-sticker.sticker-hands {
-    left: 60%;
-    bottom: 2%;
-    width: 90px;
-  }
-
-  .footer-sticker.sticker-100 {
-    left: 72%;
-    bottom: 20%;
-    width: 80px;
-  }
-
-  .footer-sticker.sticker-camera {
-    right: 2%;
-    bottom: 8%;
-    width: 85px;
-  }
-
-  /* ── Footer wordmark ────────────── */
   .footer-bottom {
-    margin-top: 200px;
+    margin-top: 140px;
   }
 
   .footer-logo__svg {
-    width: 110%;
-    margin-left: -5%;
+    width: 100%;
+    margin-left: 0;
   }
 
-  /* ── Credits badge ──────────────── */
+  .footer-stickers {
+    height: 120px;
+  }
+
+  .footer-sticker img {
+    width: 70px;
+    height: auto;
+  }
+
+  .sticker-boom { left: 0%; bottom: 8%; }
+  .sticker-smiley { left: 24%; bottom: 2%; }
+  .sticker-heart { left: 45%; bottom: 14%; }
+  .footer-sticker.sticker-hands { left: 62%; bottom: 2%; }
+  .footer-sticker.sticker-100 { left: 78%; bottom: 16%; }
+  .footer-sticker.sticker-camera { right: 0%; bottom: 6%; }
+
   .footer-credits-wrapper {
-    margin-right: -15px;
-    margin-bottom: -15px;
+    margin-right: 0;
+    margin-bottom: 0;
   }
 
   .footer-credits {
@@ -311,15 +447,7 @@
   }
 
   .credits-box {
-    padding: 16px 20px;
-    gap: 20px;
-  }
-
-  .credits-label {
-    font-size: 0.85rem;
-  }
-
-  .credits-name {
-    font-size: 0.95rem;
+    padding: 14px 18px;
+    gap: 16px;
   }
 }
