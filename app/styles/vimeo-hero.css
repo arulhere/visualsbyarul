@@ -1,0 +1,350 @@
+/* ─── Vimeo Hero ────────────────────────────────────────────────────────────── */
+
+/* The outer wrapper */
+.vimeo-hero {
+    position: relative;
+    width: calc(100% - 24px);
+    height: calc(100vh - 24px);
+    margin: 12px auto;
+    overflow: hidden;
+    background-color: var(--color-black-soft);
+    border-radius: 24px;
+    cursor: url("/assets/Cursor SVG/cursor-pointer.svg") 12 12, pointer;
+}
+
+/* ── Iframe / Video fills the container in "cover" mode ── */
+.vimeo-hero__iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 56.25vw;
+    /* 16:9 */
+    min-height: 100vh;
+    min-width: 177.78vh;
+    /* 16:9 inverted */
+    border: none;
+    pointer-events: none;
+}
+
+/* ── Thumbnail placeholder ── */
+.vimeo-hero__placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+/* ── Bottom gradient fade so text pops ── */
+.vimeo-hero__fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 20%,
+            rgba(0, 0, 0, 0.3) 55%,
+            rgba(0, 0, 0, 0.85) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────────
+   Headline — Centered directly in the center of the page
+───────────────────────────────────────────────── */
+.home-header__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 40px;
+    z-index: 3;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vimeo-hero__title {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 6.4vw, 6.8rem);
+    line-height: 1.08;
+    letter-spacing: -3px;
+    color: var(--color-white);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0 0.2em;
+    user-select: none;
+    pointer-events: auto;
+    cursor: url("/assets/Cursor SVG/cursor-pointer.svg") 12 12, pointer;
+}
+
+.vimeo-hero__break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+/* ── Scroll Down Watermark ── */
+.vimeo-hero__scroll-watermark {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-white);
+    opacity: 0.45;
+    cursor: url("/assets/Cursor SVG/cursor-pointer.svg") 12 12, pointer;
+    user-select: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    animation: scrollWatermarkBounce 2.4s ease-in-out infinite;
+}
+
+.vimeo-hero__scroll-watermark:hover {
+    opacity: 0.95;
+}
+
+.vimeo-hero__scroll-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.vimeo-hero__scroll-arrow {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2.5;
+}
+
+@keyframes scrollWatermarkBounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(6px);
+    }
+}
+
+/* Each word span */
+.vimeo-hero__word {
+    display: inline-block;
+    position: static;
+}
+
+.vimeo-hero__word.is--relative {
+    position: relative;
+}
+
+/* Italic text */
+.vimeo-hero__title em {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+/* ─── Smiley icon ─────────────────── */
+.home-header__smiley {
+    position: absolute;
+    top: -0.35em;
+    left: 0.4em;
+    width: 1em;
+    height: 1em;
+    pointer-events: none;
+    z-index: 10;
+    rotate: calc(-30deg);
+}
+
+.home-header__smiley-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ─── Pink star ─────────── */
+.home-header__star {
+    position: absolute;
+    top: 10%;
+    right: -0.6em;
+    transform: translateY(-50%);
+    width: 0.8em;
+    height: 0.8em;
+    pointer-events: none;
+    rotate: calc(10deg);
+}
+
+.home-header__star-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-header__star-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ─── Oval underline under "mainstream" ────────── */
+.home-header__title-line-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 104%;
+    color: var(--color-white);
+    overflow: visible;
+    pointer-events: none;
+}
+
+.home-header__title-line-path {
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: draw-oval-underline 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.3s;
+}
+
+@keyframes draw-oval-underline {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   Controls — bottom right / left
+───────────────────────────────────────────────── */
+.vimeo-hero__controls {
+    position: absolute;
+    bottom: 44px;
+    right: 44px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 4;
+}
+
+.vimeo-hero__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: url("/assets/Cursor SVG/cursor-pointer.svg") 2 0, pointer;
+    transition: background 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vimeo-hero__btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.08);
+}
+
+.vimeo-hero__btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ─────────────────────────────────────────────────
+   Hover mute cursor bubble — appears on video hover
+───────────────────────────────────────────────── */
+.vimeo-mute-bubble {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    transform: scale(0) rotate(-30deg);
+    transform-origin: left center;
+}
+
+/* The blob shape behind the mute icons */
+.vimeo-mute-bubble__blob {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vimeo-mute-bubble__blob-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.vimeo-mute-bubble__icon {
+    position: relative;
+    z-index: 1;
+    width: 56px;
+    height: 56px;
+    color: var(--color-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vimeo-mute-bubble__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* show/hide based on mute state */
+.vimeo-mute-bubble.is--muted .vimeo-mute-bubble__unmute {
+    display: none;
+}
+
+.vimeo-mute-bubble.is--unmuted .vimeo-mute-bubble__mute {
+    display: none;
+}
+
+/* ── Loading spinner ── */
+.vimeo-hero__loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.vimeo-hero__spinner {
+    width: 48px;
+    height: 48px;
+    opacity: 0.7;
+}
+
+/* ─── Responsive adjustments ─── */
+@media (max-width: 768px) {
+    .home-header__title {
+        bottom: 30px;
+        padding: 0 20px;
+    }
+
+    .vimeo-hero__controls {
+        bottom: 24px;
+        right: 20px;
+    }
+}
